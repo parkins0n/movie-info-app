@@ -1,0 +1,15 @@
+.search {
+  margin-bottom: 20px;
+}
+
+.search input {
+  margin-right: 10px;
+}
+
+.movie-details h2 {
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+}

@@ -1,0 +1,22 @@
+<div class="search">
+  <input [(ngModel)]="title" placeholder="Enter movie title" />
+  <input [(ngModel)]="year" placeholder="Enter release year (optional)" />
+  <button (click)="searchMovie()">Search</button>
+</div>
+
+<div *ngIf="movie && movie.Response !== 'False'" class="movie-details">
+  <h2>{{ movie.Title }}</h2>
+  <p><strong>Year:</strong> {{ movie.Year }}</p>
+  <p><strong>Rating:</strong> {{ movie.imdbRating }}</p>
+  <p><strong>Duration:</strong> {{ movie.Runtime }}</p>
+  <p><strong>Director:</strong> {{ movie.Director }}</p>
+  <p><strong>Cast:</strong> {{ movie.Actors }}</p>
+  <p><strong>Plot:</strong> {{ showFullPlot ? movie.Plot : (movie.Plot | slice:0:100) + '...' }}</p>
+  <button (click)="togglePlot()">
+    {{ showFullPlot ? 'Show less' : 'Show more' }}
+  </button>
+</div>
+
+<div *ngIf="movie && movie.Response === 'False'" class="error">
+  <p>Movie not found. Please try again.</p>
+</div>
